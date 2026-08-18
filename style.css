@@ -174,32 +174,42 @@ body.is-main-page .nav-link { color: #000; }
 /* ===========================================================
    8. Archive Section
 =========================================================== */
-.archive-visual-area { grid-column: span 5; display: flex; flex-direction: column; }
+#section-archive { 
+    position: relative; 
+    padding-bottom: 180px; 
+}
 
-/* 어떤 뷰포트에서도 비율과 정렬을 고정하기 위한 래퍼 */
+
+.archive-visual-area { 
+    grid-column: 2 / 7; 
+    display: flex; 
+    flex-direction: column; 
+    padding-right: 15px; 
+}
+
+
 .archive-poster-wrapper {
     width: 100%;
     max-width: calc((100vh - 350px) / 1.414); 
-    margin: 0 auto 0 0; /* 왼쪽 라인 완벽 일치 */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
 
-/* 🔥 연도 텍스트 상자: 여백(margin-bottom) 완벽 제거 및 검정색 복구 */
+
 .archive-year-display { 
     font-size: var(--text-lg); 
     font-weight: 800; 
-    margin-bottom: 0; /* 간격 없음! 포스터에 딱 붙음 */
+    margin-bottom: 0; 
     line-height: 1;
     text-align: center; 
-    
     width: fit-content; 
     padding: 8px 18px;  
-    color: #000000;     /* 완벽한 검정색으로 복구 */
+    color: #000000;     
     background-color: #F6A700; 
 }
 
-/* 포스터 자체는 항상 100% 너비를 쓰며 1:1.414 비율을 유지 */
+
 .archive-poster {
     width: 100%;
     aspect-ratio: 1 / 1.414; 
@@ -213,8 +223,41 @@ body.is-main-page .nav-link { color: #000; }
     object-fit: cover; 
 }
 
-/* 네비게이션 버튼 및 닷 */
-.archive-controls { margin-top: 30px; display: flex; align-items: center; justify-content: center; gap: 20px; }
+
+.archive-text-area { 
+    grid-column: 7 / 12; 
+    padding-top: 48px; 
+    padding-left: 15px; 
+}
+.archive-title { 
+    font-size: var(--text-md); 
+    font-weight: 800; 
+    margin-top: 0;
+    margin-bottom: 20px; 
+    line-height: 1; 
+}
+.archive-desc { 
+    font-family: var(--font-family); 
+    font-size: var(--text-base); 
+    line-height: 1.8; 
+    font-weight: 400; 
+}
+
+.archive-controls { 
+    position: absolute;
+    bottom: 105px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    margin-top: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 30px; 
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.archive-btn, .archive-dots { pointer-events: auto; }
 
 .archive-btn { background: transparent; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
 .archive-btn:hover { transform: scale(1.1); }
@@ -224,16 +267,6 @@ body.is-main-page .nav-link { color: #000; }
 .archive-dot { width: 8px; height: 8px; background-color: #ccc; border-radius: 50%; cursor: pointer; transition: transform 0.2s, background-color 0.2s; }
 .archive-dot.active { background-color: var(--color-text-main); transform: scale(1.3); }
 
-/* 아카이브 설명글 영역 */
-/* 연도 텍스트 폰트 높이 + 패딩 등을 계산해 포스터 상단 라인과 딱 맞춥니다. */
-.archive-text-area { grid-column: 7 / 13; padding-top: 48px; }
-.archive-title { font-size: var(--text-md); font-weight: 800; margin-bottom: 20px; line-height: 1; }
-.archive-desc { 
-    font-family: var(--font-family); 
-    font-size: var(--text-base); 
-    line-height: 1.8; 
-    font-weight: 400; 
-}
 
 /* ===========================================================
    9. About Section
@@ -425,7 +458,7 @@ body.is-main-page .nav-link { color: #000; }
     .detail-img-placeholder { width: 100%; }
     
     /* Archive Mobile */
-    .archive-visual-area { grid-column: span 4; }
+    .archive-visual-area { grid-column: span 4; padding-right: 0; }
     
     .archive-poster-wrapper { 
         width: 100%; 
@@ -434,7 +467,7 @@ body.is-main-page .nav-link { color: #000; }
     }
     .archive-year-display { 
         font-size: 24px; 
-        margin-bottom: 0; /* 모바일에서도 여백 없음 */
+        margin-bottom: 0;
         padding: 6px 14px; 
         text-align: left; 
     } 
@@ -445,10 +478,18 @@ body.is-main-page .nav-link { color: #000; }
         background-color: transparent; 
     }
 
-    .archive-controls { margin-top: 15px; }
+    /* 모바일에서는 하단 절대좌표를 풀고 자연스럽게 포스터 아래에 배치되도록 원상복구 */
+    .archive-controls { 
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 25px; 
+        pointer-events: auto;
+    }
     .archive-nav-icon { width: 40px; height: 40px; } 
     
-    .archive-text-area { grid-column: span 4; padding-top: 20px; } 
+    .archive-text-area { grid-column: span 4; padding-top: 20px; padding-left: 0; } 
     .archive-title { font-size: 20px; margin-bottom: 10px; line-height: 1; }
     .archive-desc { font-size: 14px; }
     
