@@ -176,7 +176,7 @@ body.is-main-page .nav-link { color: #000; }
 =========================================================== */
 #section-archive { 
     position: relative; 
-    padding-top: 110px; 
+    padding-top: 110px; /* 기존(120px)에서 살짝만 올리도록 수정 */
     padding-bottom: 180px; 
 }
 
@@ -185,13 +185,13 @@ body.is-main-page .nav-link { color: #000; }
     grid-column: 2 / 7; 
     display: flex; 
     flex-direction: column; 
-    padding-right: 25px; /* 포스터와 우측 텍스트 사이 간격을 늘리기 위해 패딩 증가 */
+    padding-right: 15px; 
 }
 
 
 .archive-poster-wrapper {
     width: 100%;
-    max-width: 100%; /* 너비 기준으로 꽉 차게 변경 */
+    max-width: calc((100vh - 350px) / 1.414); 
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -227,8 +227,8 @@ body.is-main-page .nav-link { color: #000; }
 
 .archive-text-area { 
     grid-column: 7 / 12; 
-    padding-top: 35px; 
-    padding-left: 25px; /* 포스터와 우측 텍스트 사이 간격을 늘리기 위해 패딩 증가 */
+    padding-top: 35px; /* 포스터 위치 변경에 맞춰 자연스럽게 조정 (기존 48px) */
+    padding-left: 15px; 
 }
 .archive-title { 
     font-size: var(--text-md); 
@@ -246,7 +246,7 @@ body.is-main-page .nav-link { color: #000; }
 
 .archive-controls { 
     position: absolute;
-    bottom: 100px; /* 기존(85px)에서 버튼을 조금 더 위로 올림 */
+    bottom: 85px; /* 기존 위치(105px)에서 조금 더 아래로 내림 */
     left: 50%;
     transform: translateX(-50%); 
     margin-top: 0; 
@@ -463,7 +463,7 @@ body.is-main-page .nav-link { color: #000; }
     
     .archive-poster-wrapper { 
         width: 100%; 
-        max-width: 100%; /* 너비 기준으로 꽉 차게 변경 */
+        max-width: calc((100vh - 350px) / 1.414); 
         margin: 0 auto; 
     }
     .archive-year-display { 
