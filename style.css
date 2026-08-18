@@ -461,11 +461,14 @@ body.is-main-page .nav-link { color: #000; }
     /* Archive Mobile */
     .archive-visual-area { grid-column: span 4; padding-right: 0; }
     
-    .archive-poster-wrapper { 
-        width: 100%; 
-        max-width: calc((100vh - 350px) / 1.414); 
-        margin: 0 auto; 
-    }
+ .archive-poster-wrapper {
+    width: 100%;
+    max-width: calc((100vh - 350px) / 1.414); /* 높이에 따라 크기가 변함 */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+    
     .archive-year-display { 
         font-size: 24px; 
         margin-bottom: 0;
