@@ -509,4 +509,24 @@ body.is-main-page .nav-link { color: #000; }
     .designer-item { grid-template-columns: 1fr; gap: 8px; padding: 15px 5px; }
     
     #floating-preview, #floating-preview.visible { display: none; } 
+
+    /* 모바일 전용: About 이미지 및 로딩 이미지 변경, 유튜브 영상 축소 */
+    .about-container > img.about-img:nth-of-type(1) {
+        content: url('about-1-mb.png');
+    }
+    .about-container > img.about-img:nth-of-type(2) {
+        content: url('about-2-mb.png');
+    }
+    .about-container > img.about-img:nth-of-type(3) {
+        content: url('about-3-mb.png');
+    }
+
+    .about-video-wrapper {
+        width: 85%;
+        margin: 40px auto;
+    }
+
+    #loading-final-img {
+        content: url('loding-mb.png');
+    }
 }
