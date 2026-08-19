@@ -519,6 +519,7 @@ body.is-main-page .nav-link { color: #000; }
     }
     .about-container > img.about-img:nth-of-type(3) {
         content: url('about-3-mb.png');
+        margin-bottom: 50px; /* 추가된 하단 여백 */
     }
 
     .about-video-wrapper {
